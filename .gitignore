@@ -1,0 +1,11 @@
+# Ignore build and temp files
+**/bin/
+**/obj/
+**/.vscode/
+**/.DS_Store
+**/.pio/
+**/build/
+**/.settings/
+**/*.launch
+**/*.cproject
+**/*.project

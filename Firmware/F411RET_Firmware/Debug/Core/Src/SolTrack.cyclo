@@ -1,0 +1,10 @@
+../Core/Src/SolTrack.c:41:6:SolTrack	5
+../Core/Src/SolTrack.c:109:8:computeJulianDay	2
+../Core/Src/SolTrack.c:135:6:computeLongitude	3
+../Core/Src/SolTrack.c:184:6:convertEclipticToEquatorial	1
+../Core/Src/SolTrack.c:203:6:convertEquatorialToHorizontal	1
+../Core/Src/SolTrack.c:243:6:eq2horiz	1
+../Core/Src/SolTrack.c:272:6:convertHorizontalToEquatorial	1
+../Core/Src/SolTrack.c:298:6:setNorthToZero	4
+../Core/Src/SolTrack.c:322:6:convertRadiansToDegrees	2
+../Core/Src/SolTrack.c:351:8:STatan2	6

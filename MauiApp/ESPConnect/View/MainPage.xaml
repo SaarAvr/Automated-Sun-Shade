@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ESPConnect.ViewModel"
+             x:DataType="viewmodel:BaseViewModel"
+             x:Class="ESPConnect.View.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label
+                Text="Welcome to the Automated SunShade app!"
+                FontSize="25"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="5"
+                RowDefinitions="Auto"
+                RowSpacing="0">
+                <Button Text="Get GPS" 
+                    Command="{Binding GetCurrentLocationCommand}"    
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="8"/>
+                <BoxView 
+                    WidthRequest="40" 
+                    HeightRequest="40" 
+                    Grid.Column="1"
+                    HorizontalOptions="Center">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding LocationStatus}" Value="True">
+                            <Setter Property="Color" Value="Green" />
+                        </DataTrigger>
+
+                        <DataTrigger TargetType="BoxView" Binding="{Binding LocationStatus}" Value="False">
+                            <Setter Property="Color" Value="Red" />
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+            </Grid>
+            
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="5"
+                RowDefinitions="Auto"
+                RowSpacing="0">
+                <Button Text="Connect" 
+                    Command="{Binding ConnectCommand}"    
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="8"/>
+                <BoxView 
+                    WidthRequest="40" 
+                    HeightRequest="40" 
+                    Grid.Column="1"
+                    HorizontalOptions="Center">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding ConnectStatus}" Value="True">
+                            <Setter Property="Color" Value="Green" />
+                        </DataTrigger>
+
+                        <DataTrigger TargetType="BoxView" Binding="{Binding ConnectStatus}" Value="False">
+                            <Setter Property="Color" Value="Red" />
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+            </Grid>
+
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="5"
+                RowDefinitions="Auto"
+                RowSpacing="0">
+                <Button Text="Send" 
+                    Command="{Binding SendCommand}"    
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="8"/>
+                <BoxView 
+                    WidthRequest="40" 
+                    HeightRequest="40" 
+                    Grid.Column="1"
+                    HorizontalOptions="Center">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding SendStatus}" Value="True">
+                            <Setter Property="Color" Value="Green" />
+                        </DataTrigger>
+
+                        <DataTrigger TargetType="BoxView" Binding="{Binding SendStatus}" Value="False">
+                            <Setter Property="Color" Value="Red" />
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+            </Grid>
+
+            <Grid 
+                ColumnDefinitions="Auto, auto"
+                RowDefinitions="auto,auto,auto">
+                <Label Text="Latitude:" FontAttributes="Bold" Grid.Column="0"/>
+                <Label Text="{Binding Latitude}" Grid.Column="1"/>
+                <Label Text="Latitude:" FontAttributes="Bold" Grid.Row="1"/>
+                <Label Text="{Binding Longitude}" Grid.Column="1" Grid.Row="1"/>
+                <Label Text="Time:" FontAttributes="Bold" Grid.Column="0" Grid.Row="2"/>
+                <Label Text="{Binding CurrentUnixTime}" Grid.Column="1" Grid.Row="2"/>
+            </Grid>
+
+                
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
