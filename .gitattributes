@@ -1,2 +1,11 @@
-Firmware/* linguist-language=C
-MauiApp/* linguist-language=C#
+Firmware/stm32-firmware/**/*.c linguist-language=C
+Firmware/stm32-firmware/**/*.h linguist-language=C
+Firmware/stm32-firmware/**/*.cpp linguist-language=C++
+Firmware/stm32-firmware/**/*.hpp linguist-language=C++
+
+Firmware/esp32-firmware/**/*.cpp linguist-language=C++
+Firmware/esp32-firmware/**/*.hpp linguist-language=C++
+Firmware/esp32-firmware/**/*.c linguist-language=C
+Firmware/esp32-firmware/**/*.h linguist-language=C
+
+MauiApp/** linguist-language=C#
