@@ -4,3 +4,4 @@ This python file was first used to build the algorithm, and move the motors thro
 
 I am now using it as a graphical demonstration to how the system works.
 
+<img width="634" alt="image" src="https://github.com/user-attachments/assets/663bef76-b7b3-47be-a07b-2cd1383ae609" />
