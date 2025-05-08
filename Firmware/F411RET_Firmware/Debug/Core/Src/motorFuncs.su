@@ -1,11 +1,11 @@
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.1.0.202410301201/tools/arm-none-eabi/include/c++/12.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
-../Core/Src/motorFuncs.cpp:54:6:void microDelay(uint16_t)	16	static
-../Core/Src/motorFuncs.cpp:60:6:void setPins(uint8_t*)	16	static
-../Core/Src/motorFuncs.cpp:77:6:void stepMotor(int, uint16_t, int)	32	static
-../Core/Src/motorFuncs.cpp:94:6:void setServo(TIM_HandleTypeDef*, uint32_t, uint8_t)	32	static
-../Core/Src/motorFuncs.cpp:99:6:void setServoToInit()	8	static
-../Core/Src/motorFuncs.cpp:105:6:void moveMotors(int*)	48	static
-../Core/Src/motorFuncs.cpp:161:6:void testFunc()	8	static
-../Core/Src/motorFuncs.cpp:163:1:void __static_initialization_and_destruction_0(int, int)	16	static
-../Core/Src/motorFuncs.cpp:163:1:cpp)	8	static
-../Core/Src/motorFuncs.cpp:163:1:cpp)	8	static
+../Core/Src/motorFuncs.cpp:56:6:void microDelay(uint16_t)	16	static
+../Core/Src/motorFuncs.cpp:62:6:void setPins(uint8_t*)	16	static
+../Core/Src/motorFuncs.cpp:79:6:void stepMotor(int, uint16_t, int)	32	static
+../Core/Src/motorFuncs.cpp:96:6:void setServo(TIM_HandleTypeDef*, uint32_t, uint8_t)	32	static
+../Core/Src/motorFuncs.cpp:101:6:void setServoToInit()	8	static
+../Core/Src/motorFuncs.cpp:107:6:void moveMotors(int*)	48	static
+../Core/Src/motorFuncs.cpp:164:6:void testFunc()	8	static
+../Core/Src/motorFuncs.cpp:175:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../Core/Src/motorFuncs.cpp:175:1:cpp)	8	static
+../Core/Src/motorFuncs.cpp:175:1:cpp)	8	static

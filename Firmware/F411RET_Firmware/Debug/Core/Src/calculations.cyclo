@@ -14,10 +14,10 @@
 ../Core/Src/calculations.cpp:209:7:point closest_point_on_line(point, point, point)	1
 ../Core/Src/calculations.cpp:228:27:std::pair<double, double> calcErrors(point, point)	5
 ../Core/Src/calculations.cpp:259:7:point compute_sun_vector(double, double)	1
-../Core/Src/calculations.cpp:273:13:motorAngles anglesCalculation(double, double)	15
+../Core/Src/calculations.cpp:273:13:motorAngles anglesCalculation(double, double)	16
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.1.0.202410301201/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_pair.h:534:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = double&; _U2 = double&; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = double; _T2 = double]	1
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.1.0.202410301201/tools/arm-none-eabi/include/c++/12.3.1/cmath:415:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = double; _Up = int]	1
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.1.0.202410301201/tools/arm-none-eabi/include/c++/12.3.1/bits/move.h:77:5:constexpr _Tp&& std::forward(typename remove_reference<_Tp>::type&) [with _Tp = double&]	1
-../Core/Src/calculations.cpp:352:1:void __static_initialization_and_destruction_0(int, int)	5
-../Core/Src/calculations.cpp:352:1:cpp)	1
-../Core/Src/calculations.cpp:352:1:cpp)	1
+../Core/Src/calculations.cpp:355:1:void __static_initialization_and_destruction_0(int, int)	5
+../Core/Src/calculations.cpp:355:1:cpp)	1
+../Core/Src/calculations.cpp:355:1:cpp)	1

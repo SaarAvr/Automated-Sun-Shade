@@ -22,7 +22,7 @@
 uint16_t maxAngleMap = 950;
 uint16_t minAngleMap = 250;
 
-const int16_t servo_bias1 = 98;
+const int16_t servo_bias1 = 105;
 const int16_t servo_bias2 = 95;
 const int16_t servo_bias3 = 60;
 //const int16_t servo_bias1 = 0;
@@ -31,8 +31,10 @@ const int16_t servo_bias3 = 60;
 int16_t servo_ang1 = servo_bias1;
 int16_t servo_ang2 = servo_bias2;
 int16_t servo_ang3 = servo_bias3;
-int16_t servo3_limit = 35;
+//int16_t servo3_limit = 35;
 int16_t stepper_ang = 0;
+float stepper_ang_float = 0;
+float stepperPhi = 0.0878906;
 bool servoMoved = false;
 
 // Step sequence for motor control (half-drive)
@@ -97,9 +99,9 @@ void setServo (TIM_HandleTypeDef *htim, uint32_t channel, uint8_t angle){
 }
 
 void setServoToInit(){
-	setServo (&htim3, TIM_CHANNEL_1, 98);
-	setServo (&htim3, TIM_CHANNEL_2, 95);
-	setServo (&htim3, TIM_CHANNEL_3, 60);
+	setServo (&htim3, TIM_CHANNEL_1, servo_bias1);
+	setServo (&htim3, TIM_CHANNEL_2, servo_bias2);
+	setServo (&htim3, TIM_CHANNEL_3, servo_bias3);
 }
 
 void moveMotors(int anglesRec[4]){
@@ -107,8 +109,10 @@ void moveMotors(int anglesRec[4]){
 	bool anglesSet[4] = {false, false, false, false};
 	printf("Received angles: %d, %d, %d, %d\r\n", angles[0], angles[1], angles[2], angles[3]);
 	while (!(anglesSet[0] && anglesSet[1] && anglesSet[2] && anglesSet[3])){
-		printf(">>>>WHILE LOOP<<<<\r\n");
-		printf("stepper_ang: %d, servo_ang1: %d, servo_ang2: %d,servo_ang3: %d\r\n",stepper_ang,servo_ang1,servo_ang2,servo_ang3);
+		printf(">>>>WHILE LOOP<<<<\r\n\n");
+		printf("Current Angles: %d, servo_ang1: %d, servo_ang2: %d,servo_ang3: %d\r\n",stepper_ang,servo_ang1,servo_ang2,servo_ang3);
+		printf("Received angles: %d, %d, %d, %d\r\n", angles[0], angles[1], angles[2], angles[3]);
+		printf("States:__%d__%d__%d__%d__\r\n", anglesSet[0],anglesSet[1],anglesSet[2],anglesSet[3]);
 		if (servo_ang1 - servo_bias1 > -angles[1]){ // FIX BACK TO '-'
 		  servo_ang1 -= 1;
 		  servoMoved = true;
@@ -131,35 +135,43 @@ void moveMotors(int anglesRec[4]){
 
 		if (servo_ang3 - servo_bias3 > angles[3]){
 		  servo_ang3 -= 1;
-		} else if(servo_ang3 - servo_bias3 < angles[3])
+		  servoMoved = true;
+		} else if(servo_ang3 - servo_bias3 < angles[3]){
 		  servo_ang3 += 1;
-		if (servo_ang3 >= -servo3_limit + servo_bias3){
-		  setServo (&htim3, TIM_CHANNEL_3, servo_ang3);
-		  if (servo_ang3 == angles[3] + servo_bias3) anglesSet[3] = true;
 		  servoMoved = true;
 		}
-//
-		if (stepper_ang > angles[0]){
-		  stepper_ang += 1;
-		  stepMotor(1, 1000, 1);
-		} else if (stepper_ang < angles[0]){
-		  stepper_ang -= 1;
-		  stepMotor(1, 1000, -1);
+		setServo (&htim3, TIM_CHANNEL_3, servo_ang3);
+		if (servo_ang3 == angles[3] + servo_bias3) anglesSet[3] = true;
+
+		if (stepper_ang_float < angles[0]){
+		  stepper_ang_float += stepperPhi*12;
+		  stepMotor(12, 1000, 1);
+		} else if (stepper_ang > angles[0]){
+		  stepper_ang_float -= stepperPhi*12;
+		  stepMotor(12, 1000, -1);
 		}
-		if (stepper_ang == -angles[0]) anglesSet[0] = true;
+		stepper_ang = (int)stepper_ang_float;
+		if (stepper_ang == angles[0]) anglesSet[0] = true;
 
-		stepMotor(1024, 1000, -1);
-//		while(1);
 
-//		if (servoMoved == true){
-//		  HAL_Delay(30);
-//		  servoMoved = false;
-//		}
+		if (servoMoved == true){
+		  HAL_Delay(30);
+		  servoMoved = false;
+		}
 	}
 }
 
 void testFunc(){
 	printf("TEST\r\n");
+//	int counterA = 0;
+//	while (counterA < 180){
+//		printf("counterA = %d\r\n", counterA);
+//		stepMotor(11, 1000, -1);
+//		counterA++;
+//		HAL_Delay(10);
+//	}
+//	stepMotor(2048, 1000, -1);
+
 }
 
 

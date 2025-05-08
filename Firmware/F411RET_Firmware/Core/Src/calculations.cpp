@@ -343,10 +343,13 @@ motorAngles anglesCalculation(double azi, double alt){
   pan_angle = panTiltResult.first;
   tilt_angle = panTiltResult.second;
 
+
+  	if (ang1 < -180) ang1 +=360;
 	angles.val1 = ang1;
 	angles.val2 = ang2;
 	angles.val3 = pan_angle;
 	angles.val4 = tilt_angle;
+
 //	printf("finished calculating\r\n");
  	return angles;
 }

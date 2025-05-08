@@ -239,6 +239,9 @@ int main(void)
   {
 	  printf("\n####_%d_LOOP_%d_####\r\n",didClean,counter);
 	  counter++;
+
+	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	  HAL_Delay(500);
       if (rxPacketReady)
       {
           rxPacketReady = false;
@@ -247,9 +250,10 @@ int main(void)
           SetRTC_FromUnixTime(rxPacket.timestamp);
           timeAtSync = HAL_GetTick();
           gotData = true;
+//          testFunc();
       }
 
-//      if (!gotData) continue;
+      if (!gotData) continue;
 
 	  HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 	  HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
@@ -270,15 +274,10 @@ int main(void)
 	  anglesSend[1] = angles.val2;
 	  anglesSend[2] = angles.val3;
 	  anglesSend[3] = angles.val4;
-	  testFunc();
 	  moveMotors(anglesSend);
 
-	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+
 	  HAL_Delay(2000);
-
-
-
-
 
 	  __NOP();
 
