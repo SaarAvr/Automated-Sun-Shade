@@ -434,23 +434,23 @@ def update_plot(val):
     ax.quiver(0, 0, 0, 0, 0, 0.5, color='blue', arrow_length_ratio=0.1)
 
     # Plot stick (line from origin to stick)
-    ax.plot([0, stick_position[0]], [0, stick_position[1]], [0, stick_position[2]], color='orange', linewidth=3, label='Stick')
+    ax.plot([0, stick_position[0]], [0, stick_position[1]], [0, stick_position[2]], color='orange', linewidth=3, label='Base')
 
     err_vec_rotated = rotate_point(initial_vec_err, ang1, 'z')
     correction = stick_position + err_vec_rotated
     # Plot correction vector
     ax.plot([stick_position[0], correction[0]], [stick_position[1], correction[1]], [stick_position[2], correction[2]],
-            color='firebrick', linewidth=3, label='correction')
+            color='firebrick', linewidth=3, label='Base arm')
 
     # Plot continuation point (line from stick to continuation point)
     ax.plot([correction[0], continuation_point[0]], [correction[1], continuation_point[1]], [correction[2], continuation_point[2]],
-            color='magenta', linewidth=3, label='Continuation Point')
+            color='magenta', linewidth=3, label='Main arm')
 
     # Plot outgoing vector (line from continuation point to parallel vector endpoint)
     ax.plot([continuation_point[0], parallel_vector_endpoint[0]],
             [continuation_point[1], parallel_vector_endpoint[1]],
             [continuation_point[2], parallel_vector_endpoint[2]],
-            color='purple', linewidth=7, label='Outgoing Vector')
+            color='purple', linewidth=7, label='Parasol')
 
     # # Plot sun vector
     # ax.plot([0, sun_vector[0]], [0, sun_vector[1]], [0, sun_vector[2]],

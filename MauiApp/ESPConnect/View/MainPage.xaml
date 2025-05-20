@@ -8,25 +8,18 @@
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
-            Spacing="25">
+            Spacing="20">
             <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
+                Source="automatic_parasol_wide.png"
+                HeightRequest="220"
                 Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+                SemanticProperties.Description="Automatic Parasol at beach" />
 
             <Label
-                Text="Welcome to the Automated SunShade app!"
-                FontSize="25"
+                Text="Welcome to the Automated SunShade app!!"
+                FontSize="22"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
 
             <Grid
                 ColumnDefinitions="*,*"
@@ -112,9 +105,9 @@
             <Grid 
                 ColumnDefinitions="Auto, auto"
                 RowDefinitions="auto,auto,auto">
-                <Label Text="Latitude:" FontAttributes="Bold" Grid.Column="0"/>
+                <Label Text="Latitude: " FontAttributes="Bold" Grid.Column="0"/>
                 <Label Text="{Binding Latitude}" Grid.Column="1"/>
-                <Label Text="Latitude:" FontAttributes="Bold" Grid.Row="1"/>
+                <Label Text="Latitude: " FontAttributes="Bold" Grid.Row="1"/>
                 <Label Text="{Binding Longitude}" Grid.Column="1" Grid.Row="1"/>
                 <Label Text="Time:" FontAttributes="Bold" Grid.Column="0" Grid.Row="2"/>
                 <Label Text="{Binding CurrentUnixTime}" Grid.Column="1" Grid.Row="2"/>
